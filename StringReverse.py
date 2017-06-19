@@ -2,4 +2,5 @@
 
 print("Type in your word/sentance:")
 word = raw_input()
+
 print(word[::-1])
