@@ -41,6 +41,9 @@ def move_right(snake_position, old_pos):
 	old_pos = snake_position
 	snake_position = snake_position + 1
 
+def scoreboard():
+	pass
+
 def update_movement(snake_position, old_pos, grid, snake, background):
 	grid[snake_position] = snake
 	grid[old_pos] = background
