@@ -1,2 +1,0 @@
-python DiceRoll.py
-pause

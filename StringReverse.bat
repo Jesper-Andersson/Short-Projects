@@ -1,2 +1,0 @@
-python StringReverse.py
-pause
