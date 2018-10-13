@@ -6,6 +6,7 @@
 # "Snake" part
 
 import time
+import math
 from os import system, name
 
 snake = "+"
@@ -18,7 +19,7 @@ grid = [background, background, background,
 
 old_pos = 0
 snake_position = 4
-grid_width = 3
+grid_width = math.sqrt(len(grid))
 
 def draw_grid():
 	i = 0
