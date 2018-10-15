@@ -13,15 +13,14 @@ import math
 from os import system, name
 import keyboard
 
-snake = "+"
-background = "-"
+snake = "S"
+background = "#"
 apple = "O"
 
 grid = [background, background, background, background,
 		background, snake, 		background, background,
 		background, background, background, background,
-		background, background, background, background
-		]
+		background, background, background, background]
 
 snake_position = 4
 total_score = 0
@@ -41,7 +40,7 @@ def draw_grid():
 		print(grid[i], end='')
 		i += 1
 		if i % grid_width == 0:
-			print('\n')
+			print('')
 
 def update_movement(old_pos):
 	global grid
@@ -90,10 +89,16 @@ def addscore():
 
 draw_grid()
 
-keyboard.add_hotkey('w', move_up())
-keyboard.add_hotkey('a', move_left())
-keyboard.add_hotkey('s', move_down())
-keyboard.add_hotkey('d', move_right())
-
-move_right()
-move_right()
+while True:
+	if keyboard.is_pressed('w') == True:
+		move_up()
+		time.sleep(0.5)
+	if keyboard.is_pressed('a') == True:
+		move_left()
+		time.sleep(0.5)
+	if keyboard.is_pressed('s') == True:
+		move_down()
+		time.sleep(0.5)
+	if keyboard.is_pressed('d') == True:
+		move_right()
+		time.sleep(0.5)
