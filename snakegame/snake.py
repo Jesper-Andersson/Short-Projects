@@ -11,7 +11,7 @@
 import time
 import math
 from os import system, name
-import pyHook
+import keyboard
 
 snake = "+"
 background = "-"
@@ -88,7 +88,12 @@ def addscore():
 	global total_score
 	total_score += score_worth
 
-#Frontend stuff
 draw_grid()
+
+keyboard.add_hotkey('w', move_up())
+keyboard.add_hotkey('a', move_left())
+keyboard.add_hotkey('s', move_down())
+keyboard.add_hotkey('d', move_right())
+
 move_right()
 move_right()
