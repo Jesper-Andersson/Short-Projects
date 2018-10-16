@@ -1,15 +1,16 @@
 #Snakegame Jesper-Andersson
 
 # TODO:
-# Background keyboard input
+# Background keyboard input DONE
+# Remove empty line between grid rows DONE
 # Unpassable borders
 # Game over
-# Apples & point display
+# Apples & point display 
 # "Snake" part
-# Remove empty line between grid rows
 
 import time
 import math
+import random
 from os import system, name
 import keyboard
 
@@ -22,9 +23,11 @@ grid = [background, background, background, background,
 		background, background, background, background,
 		background, background, background, background]
 
+running = True
 snake_position = 4
 total_score = 0
 score_worth = 1
+apple_pos = 0
 
 grid_width = int(math.sqrt(len(grid)))
 print(str(grid_width))
@@ -45,35 +48,35 @@ def draw_grid():
 def update_movement(old_pos):
 	global grid
 	global snake_position
-
 	grid[snake_position] = snake
 	grid[old_pos] = background
 	draw_grid()
 
+def apple_spawner():
+	global apple_pos
+	apple_pos = random.randint(0, len(grid))
+	grid[apple_pos] = apple
+
 def move_up():
 	global snake_position
-
 	old_pos = snake_position
 	snake_position = snake_position - grid_width
 	update_movement(old_pos)
 
 def move_down():
 	global snake_position
-
 	old_pos = snake_position
 	snake_position = snake_position + grid_width
 	update_movement(old_pos)
 
 def move_left():
 	global snake_position
-
 	old_pos = snake_position
 	snake_position = snake_position - 1
 	update_movement(old_pos)
 
 def move_right():
 	global snake_position
-
 	old_pos = snake_position
 	snake_position = snake_position + 1
 	update_movement(old_pos)
@@ -87,18 +90,20 @@ def addscore():
 	global total_score
 	total_score += score_worth
 
+
+apple_spawner()
 draw_grid()
 
-while True:
+while running == True:
 	if keyboard.is_pressed('w') == True:
 		move_up()
-		time.sleep(0.5)
+		time.sleep(0.2)
 	if keyboard.is_pressed('a') == True:
 		move_left()
-		time.sleep(0.5)
+		time.sleep(0.2)
 	if keyboard.is_pressed('s') == True:
 		move_down()
-		time.sleep(0.5)
+		time.sleep(0.2)
 	if keyboard.is_pressed('d') == True:
 		move_right()
-		time.sleep(0.5)
+		time.sleep(0.2)
