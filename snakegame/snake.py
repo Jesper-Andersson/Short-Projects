@@ -7,6 +7,7 @@
 # Game over
 # Apples & point display 
 # "Snake" part
+# User defined grid size
 
 import time
 import math
@@ -19,7 +20,7 @@ background = "#"
 apple = "O"
 
 grid = [background, background, background, background,
-		background, snake, 		background, background,
+		background, snake, background, background,
 		background, background, background, background,
 		background, background, background, background]
 
